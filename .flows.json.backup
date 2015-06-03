@@ -1,0 +1,1152 @@
+[
+    {
+        "type": "tab",
+        "id": "c3aed0d3.3ce58",
+        "label": "Flow"
+    },
+    {
+        "type": "tab",
+        "id": "system",
+        "label": "System"
+    },
+    {
+        "id": "d66ba359.29946",
+        "type": "subflow",
+        "name": "fetch TSL230 light frequency",
+        "in": [
+            {
+                "x": 63,
+                "y": 169,
+                "wires": [
+                    {
+                        "id": "1f0c2a11.e0f3d6"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 556,
+                "y": 315,
+                "wires": [
+                    {
+                        "id": "1cc3f292.e33c0d",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "cc50e872.33af18",
+        "type": "subflow",
+        "name": "fetch DS18B20 temperature",
+        "in": [
+            {
+                "x": 56,
+                "y": 167,
+                "wires": [
+                    {
+                        "id": "ff07008b.00f9"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 452,
+                "y": 303,
+                "wires": [
+                    {
+                        "id": "4defe303.b2101c",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "e8835a.512c7ca8",
+        "type": "mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": ""
+    },
+    {
+        "id": "53505222.4dcc24",
+        "type": "http in",
+        "name": "",
+        "url": "/form/change-hostname",
+        "method": "get",
+        "x": 167.5,
+        "y": 780,
+        "z": "system",
+        "wires": [
+            [
+                "76ae3bc5.10133c"
+            ]
+        ]
+    },
+    {
+        "id": "97c72e9b.2cba48",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 780,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "76ae3bc5.10133c",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div class=\"form-row\">\n\t<label for=\"change-password-input\"><i class=\"icon-tag\"></i>\n\t\tName</label><input id=\"change-password-input\" type=\"text\" name=\"value\">\n</div>\n\t\n\n",
+        "x": 410,
+        "y": 780,
+        "z": "system",
+        "wires": [
+            [
+                "97c72e9b.2cba48"
+            ]
+        ]
+    },
+    {
+        "id": "efa70ca9.a0e8b",
+        "type": "exec",
+        "command": "cat /etc/hostname",
+        "append": "",
+        "useSpawn": "",
+        "name": "",
+        "x": 444.5,
+        "y": 209,
+        "z": "system",
+        "wires": [
+            [
+                "5c747b17.7bc6e4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ce6187c5.f08d48",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 260,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "8daa6a5.6bcd898",
+        "type": "http in",
+        "name": "",
+        "url": "/form/current-hostname",
+        "method": "get",
+        "x": 166.5,
+        "y": 209,
+        "z": "system",
+        "wires": [
+            [
+                "efa70ca9.a0e8b"
+            ]
+        ]
+    },
+    {
+        "id": "f8783c1e.9171f",
+        "type": "http in",
+        "name": "",
+        "url": "/form/navbar",
+        "method": "get",
+        "x": 132.5,
+        "y": 140,
+        "z": "system",
+        "wires": [
+            [
+                "a917e514.5165e"
+            ]
+        ]
+    },
+    {
+        "id": "4ae570a1.7691d",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 140,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "a917e514.5165e",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div id=\"header\">\n\t<div id=\"notifications\"></div>\n    <span class=\"logo\">\n\t\t<a target=\"_blank\" href=\"http://thethingbox.io\"><img src=\"/bee.png\" style=\"height: 30px;\"><span> The ThingBox </span></a>\t\n\t\t<span>&nbsppowered by&nbsp</span>\n\t</span>\n    <span class=\"logo\">\n\t\t<a target=\"_blank\" href=\"http://nodered.org/\"><img src=\"/node-red.png\"> <span>Node-RED</span></a>\n\t</span>\n    <div class=\"pull-right\">\n        <a id=\"btn-sidemenu\" class=\"button dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><i class=\"fa fa-bars\"></i></a>\n    </div>\n</div>",
+        "x": 390,
+        "y": 140,
+        "z": "system",
+        "wires": [
+            [
+                "4ae570a1.7691d"
+            ]
+        ]
+    },
+    {
+        "id": "9fb8cf7b.54717",
+        "type": "http in",
+        "name": "",
+        "url": "/form/wifi",
+        "method": "get",
+        "x": 120,
+        "y": 300,
+        "z": "system",
+        "wires": [
+            [
+                "4ec883e4.8aac74"
+            ]
+        ]
+    },
+    {
+        "id": "911596a6.931158",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 300,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "4ec883e4.8aac74",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div aria-labelledby=\"ui-id-4\" aria-describedby=\"dialog\" role=\"dialog\"\n\ttabindex=\"-1\"\n\tclass=\"setting-board ui-dialog ui-widget ui-widget-content\">\n\n\t<div\n\t\tclass=\"ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix\">\n\t\t<span class=\"ui-dialog-title\" id=\"ui-id-4\">WiFi</span>\n\t</div>\n\t<div\n\t\tstyle=\"display: block; width: auto; min-height: 26px; max-height: none; height: auto;\"\n\t\tid=\"dialog\" class=\"hide ui-dialog-content ui-widget-content\">\n\t\t<form id=\"wifi-form\" class=\"form-horizontal\"\n\t\t\taction=\"/api/handle/wifilist\">\n\n\t\t\t<div id=\"current-wifi-container\"></div>\n\n\t\t\t<div id=\"wifilist-container\"></div>\n\n\t\t\t<div class=\"form-tips\">\n\t\t\t\t<b>Note:</b> Use Ok to validate then Reboot.\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\n\n\t<div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\n\t\t<div class=\"ui-dialog-buttonset\">\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\"\n\t\t\t\ttype=\"submit\" form=\"wifi-form\">\n\t\t\t\t<span class=\"ui-button-text\">Ok</span>\n\t\t\t</button>\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-reboot\"\n\t\t\t\ttype=\"button\">\n\t\t\t\t<span class=\"ui-button-text\">Reboot</span>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n</div>\n\n\n<div id='result-wifilist'></div>\n<script>\n\t$(\"#current-wifi-container\").load(\"current-wifi\");\n\t$(\"#wifilist-container\").load(\"wifilist\");\n\n\t$('#wifi-form').submit(function(event){\n\t\t\t\t\n\t\t\t\tvar $this = $(this);\n\t\t\t\t\n\t\t\t\tevent.preventDefault();\n\t\t\t\t$('input[name=\"usingAJAX\"]',this).val( 'true' );\n\t\t\t\tvar url = $this.attr('action');\n\t\t\t\tvar dataToSend = $this.serialize();\n\t\t\t\tvar callback = function(dataReceived){\n\t\t\t\t\tRED.notify(dataReceived,\"success\");\n\t\t\t\t};\n\t\t\t\tvar typeOfDataToReceive = 'html';\n\t\t\t\t$.get( url, dataToSend, callback, typeOfDataToReceive )\n\t\t\t});\n\n</script>\n\n",
+        "x": 410,
+        "y": 300,
+        "z": "system",
+        "wires": [
+            [
+                "911596a6.931158"
+            ]
+        ]
+    },
+    {
+        "id": "f8018c86.ad1298",
+        "type": "http in",
+        "name": "",
+        "url": "/form/current-wifi",
+        "method": "get",
+        "x": 145,
+        "y": 340,
+        "z": "system",
+        "wires": [
+            [
+                "6c95f5bf.42af0c"
+            ]
+        ]
+    },
+    {
+        "id": "16f68de1.99c99a",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 380,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "af2966e0.d8a4c",
+        "type": "ejs",
+        "name": "",
+        "ejs": "\n\n\n\n<div id=\"current-wifi\"><span class=\"icon-signal\"></span> Current wifi connected is : <code><%= payload.essid %></code></div></br>\n",
+        "x": 410,
+        "y": 380,
+        "z": "system",
+        "wires": [
+            [
+                "16f68de1.99c99a"
+            ]
+        ]
+    },
+    {
+        "id": "6c95f5bf.42af0c",
+        "type": "currentwifi",
+        "name": "",
+        "x": 420.5,
+        "y": 340,
+        "z": "system",
+        "wires": [
+            [
+                "af2966e0.d8a4c"
+            ]
+        ]
+    },
+    {
+        "id": "7628fbbf.84ea1c",
+        "type": "http in",
+        "name": "",
+        "url": "/form/wifilist",
+        "method": "get",
+        "x": 128.5,
+        "y": 420,
+        "z": "system",
+        "wires": [
+            [
+                "bcb6d38.2a538b"
+            ]
+        ]
+    },
+    {
+        "id": "9688ff55.41d82",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 460,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "bcb6d38.2a538b",
+        "type": "wifilist",
+        "name": "name",
+        "x": 410,
+        "y": 420,
+        "z": "system",
+        "wires": [
+            [
+                "72e10b0d.e0ffc4"
+            ]
+        ]
+    },
+    {
+        "id": "72e10b0d.e0ffc4",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div id=\"wifilist\">\n\t\n\t<div class=\"form-row\">\n\t\t<label for=\"wifilist-ssid\"><i class=\"icon-tag\"></i>\n\t\t\tssid</label><select id=\"wifilist-ssid\" name=\"ssid\">\n\t\t\t<% payload.forEach(function(wifi) { %>\n\t\t\t<option name=\"<%=wifi.essid%>\"> <%=wifi.essid%></option> <%\n\t\t\t}) %>\n\t\t</select>\n\t</div>\n\t\n\t<div class=\"form-row\">\n\t\t<label for=\"wifilist-password\"><i class=\"icon-lock\"></i>\n\t\t\tpassword</label><input id=\"wifilist-password\" type=\"text\" name=\"password\">\n\t</div>\n\t\n</div>",
+        "x": 410,
+        "y": 460,
+        "z": "system",
+        "wires": [
+            [
+                "9688ff55.41d82"
+            ]
+        ]
+    },
+    {
+        "id": "9bd663bf.051018",
+        "type": "ejs",
+        "name": "Setting Form",
+        "ejs": "<!DOCTYPE HTML>\n<html>\n<title>Settings</title>\n<script src=\"http://code.jquery.com/jquery-1.10.2.js\"></script>\n<link href=\"/bootstrap/css/bootstrap.min.css\" rel=\"stylesheet\" media=\"screen\">\n<link href=\"/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css\" rel=\"stylesheet\" media=\"screen\">\n<link rel=\"stylesheet\" href=\"/style.css\">\n\n<style>\n\n.navbar-fixed-top {\n\tposition: fixed !important;\n}\n.setting-board {\n\tposition: static;\n}\n\n.setting-edit-container {\n\tpadding: 10px;\n\tmargin: 23px;\n\twidth: 750px;\n}\n</style>\n\n<script>\nfunction load() {\n\n\tvar funcs = [];\n\n\tfuncs.push(function(callback){\n\t\t$(\"#hostname-container\").load(\"hostname\", function(){\n\t\t\tcallback();\n\t\t});\n\t});\n\tfuncs.push(function(callback){\n\t\t$(\"#wifi-container\").load(\"wifi\", function(){\n\t\t\tcallback();\n\t\t});\n\t});\n\tfuncs.push(function(callback){\n\t\t$(\"#static_ip-container\").load(\"static_ip\", function(){\n\t\t\tcallback();\n\t\t});\n\t});\n\t\n\tasync.parallel(funcs, function(){\n\t\t$(\".button-reboot\").click(function() {\n\t\t\tRED.notify(\"Reboot ...\",\"success\");\n\t\t\t$.ajax({\n\t\t\t\ttype: \"POST\",\n\t\t\t\turl: \"/inject/reboot\"\n\t\t\t});\n\t\t});\n\t});\n}\n\n$(document).ready(function(){\n\t$(\"#navbar-container\").load(\"navbar\");\n\tload();\n});\n</script>\n\n<div id=\"navbar-container\"><div id=\"notifications\"></div></div>\n\n\n\t<div id=\"hostname-container\" class=\"setting-edit-container\"></div>\n\t<div id=\"wifi-container\" class=\"setting-edit-container\"></div>\n\t<div id=\"static_ip-container\" class=\"setting-edit-container\"></div>\n\n\n\n<script>\n\tvar RED = {};\n</script>\n<script src=\"/red/ui/notifications.js\"></script>\n<script src=\"/async.js\"></script>\n</html>",
+        "x": 409,
+        "y": 80,
+        "z": "system",
+        "wires": [
+            [
+                "8f93923e.9b8578"
+            ]
+        ]
+    },
+    {
+        "id": "d506a29c.44c5",
+        "type": "http in",
+        "name": "",
+        "url": "/form/settings",
+        "method": "get",
+        "x": 134,
+        "y": 80,
+        "z": "system",
+        "wires": [
+            [
+                "9bd663bf.051018"
+            ]
+        ]
+    },
+    {
+        "id": "8f93923e.9b8578",
+        "type": "http response",
+        "name": "",
+        "x": 649,
+        "y": 80,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "aad47f5f.ec3c9",
+        "type": "http in",
+        "name": "",
+        "url": "/form/hostname",
+        "method": "get",
+        "x": 141.5,
+        "y": 640,
+        "z": "system",
+        "wires": [
+            [
+                "3b78840e.6bc984"
+            ]
+        ]
+    },
+    {
+        "id": "d8aeb04.67843d",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 640,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "3b78840e.6bc984",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div aria-labelledby=\"ui-id-4\" aria-describedby=\"dialog\" role=\"dialog\"\n\ttabindex=\"-1\"\n\tclass=\"setting-board ui-dialog ui-widget ui-widget-content\">\n\n\t<div\n\t\tclass=\"ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix\">\n\t\t<span class=\"ui-dialog-title\" id=\"ui-id-4\">ThingBox Name</span>\n\t</div>\n\t<div\n\t\tstyle=\"display: block; width: auto; min-height: 26px; max-height: none; height: auto;\"\n\t\tid=\"dialog\" class=\"hide ui-dialog-content ui-widget-content\">\n\t\t<form id=\"hostname-form\" class=\"form-horizontal\"\n\t\t\taction=\"/api/handle/change-hostname\">\n\t\t\t\n\t\t\t<div id=\"current-hostname-container\"></div></br>\n\t\t\t<div id=\"change-hostname-container\"></div>\n\n\t\t\t<div class=\"form-tips\">\n\t\t\t\t<b>Note:</b> Use Ok to validate then Reboot.\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\t<div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\n\t\t<div class=\"ui-dialog-buttonset\">\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\"\n\t\t\t\ttype=\"submit\" form=\"hostname-form\">\n\t\t\t\t<span class=\"ui-button-text\">Ok</span>\n\t\t\t</button>\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-reboot\"\n\t\t\t\ttype=\"button\">\n\t\t\t\t<span class=\"ui-button-text\">Reboot</span>\n\t\t\t</button>\n\t\t</div>\n\t</div>\n\n</div>\n\n<div id=\"ttb-name\"></div>\n\n\n<script>\n//\t$(\"#current-hostname-container\").load(\"current-hostname\");\n//\t$(\"#change-hostname-container\").load(\"change-hostname\");\n\t$(\"#change-hostname-container\").load(\"change-hostname\", function() {\n\t\t$.ajax({\n\t       url : 'current-hostname',\n\t       type : 'GET',\n\t       dataType : 'html',\n\t           success : function(code_html, statut){\n\t           \tcode_html;\n\t\t\t\t$(\"#change-password-input\").val(code_html);\n\t           },\n\t           error : function(result, statut, error){\n\t\t\t\talert(error);\n\t           }\n\t    });\n\t});\n\n\n\t\t$('#hostname-form').submit(function(event){\n\t\t\t\t\n\t\t\t\tvar $this = $(this);\n\t\t\t\t\n\t\t\t\tevent.preventDefault();\n\t\t\t\t$('input[name=\"usingAJAX\"]',this).val( 'true' );\n\t\t\t\tvar url = $this.attr('action');\n\t\t\t\tvar dataToSend = $this.serialize();\n\t\t\t\tvar callback = function(dataReceived){\n\t\t\t\t\tRED.notify(dataReceived,\"success\");\n\t\t\t\t};\n\t\t\t\tvar typeOfDataToReceive = 'html';\n\t\t\t\t$.get( url, dataToSend, callback, typeOfDataToReceive )\n\t\t\t});\n\n\n</script>\n\n",
+        "x": 410,
+        "y": 640,
+        "z": "system",
+        "wires": [
+            [
+                "d8aeb04.67843d"
+            ]
+        ]
+    },
+    {
+        "id": "df222521.7bf818",
+        "type": "http in",
+        "name": "",
+        "url": "/form/static_ip",
+        "method": "get",
+        "x": 136.5,
+        "y": 500,
+        "z": "system",
+        "wires": [
+            [
+                "16fc7722.cefe11"
+            ]
+        ]
+    },
+    {
+        "id": "fe99f7a5.b6ba2",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 500,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "16fc7722.cefe11",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<div aria-labelledby=\"ui-id-4\" aria-describedby=\"dialog\" role=\"dialog\"\n\ttabindex=\"-1\"\n\tclass=\"setting-board ui-dialog ui-widget ui-widget-content\">\n\n\t<div\n\t\tclass=\"ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix\">\n\t\t<span class=\"ui-dialog-title\" id=\"ui-id-4\">Static IP</span>\n\t</div>\n\t<div\n\t\tstyle=\"display: block; width: auto; min-height: 26px; max-height: none; height: auto;\"\n\t\tid=\"dialog\" class=\"hide ui-dialog-content ui-widget-content\">\n\t\t<form id=\"static_ip-form\" class=\"form-horizontal\"\n\t\t\taction=\"/api/handle/static_ip\">\n\t\n\t<div class=\"form-row\">\n\t\t<label for=\"static_ip-iface\"><i class=\"icon-tag\"></i>\n\t\t\tInterface</label><select id=\"static_ip-iface-input\" name=\"iface\">\n\t\t\t<option value=\"eth0\">Ethernet</option>\n\t\t\t<option value=\"wlan0\">WiFi</option>\n\t\t</select>\n\t</div>\n\t<div class=\"form-row\">\n\t\t<label for=\"static_ip-type-input\"><i class=\"icon-tag\"></i>\n\t\t\tType</label><select id=\"static_ip-type-input\" name=\"type\">\n\t\t\t<option value=\"static\">Static</option>\n\t\t\t<option value=\"dynamic\">Dynamic</option>\n\t\t</select>\n\t</div>\n\t<div class=\"form-row static-properties\">\n\t\t<label for=\"static_ip-ip\">\n\t\t\t<i class=\"icon-tag\"></i>IP\n\t\t</label>\n\t\t<input id=\"static_ip-ip\" type=\"text\" name=\"ip\" placeholder=\"192.168.0.42\">\n\t</div>\n\t<div class=\"form-row static-properties\">\n\t\t<label for=\"static_ip-netmask\">\n\t\t\t<i class=\"icon-tag\"></i>Netmask\n\t\t</label>\n\t\t<input id=\"static_ip-netmask\" type=\"text\" name=\"netmask\" placeholder=\"255.255.255.0\">\n\t</div>\n\t<div class=\"form-row static-properties\">\n\t\t<label for=\"static_ip-gateway\">\n\t\t\t<i class=\"icon-tag\"></i>Gateway\n\t\t</label>\n\t\t<input id=\"static_ip-netmask\" type=\"text\" name=\"gateway\" placeholder=\"192.168.0.254\">\n\t</div>\n\n\t\t\t<div class=\"form-tips\">\n\t\t\t\t<b>Note:</b> Use Ok to validate then Reboot.\n\t\t\t</div>\n\t\t</form>\n\t</div>\n\n\n\t<div class=\"ui-dialog-buttonpane ui-widget-content ui-helper-clearfix\">\n\t\t<div class=\"ui-dialog-buttonset\">\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\"\n\t\t\t\ttype=\"submit\" form=\"static_ip-form\">\n\t\t\t\t<span class=\"ui-button-text\">Ok</span>\n\t\t\t</button>\n\t\t\t<button aria-disabled=\"false\" role=\"button\"\n\t\t\t\tclass=\"ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-reboot\"\n\t\t\t\ttype=\"button\">\n\t\t\t\t<span class=\"ui-button-text\">Reboot</span>\n\t\t\t</button>\n\t\t</div>\n\t\t\n\n\t\t\n\t</div>\n\n</div>\n\n<script>\n\n$(\"#static_ip-type-input\").change(function(){\n\tvar val = $(this).val();\n\t\t\n\t\tif(val === \"dynamic\"){\n\t\t\t$('.static-properties').hide();\n\t\t}\n\t\telse {\n\t\t\t$('.static-properties').show();\n\t\t}\n});\n\n\t$('#static_ip-form').submit(function(event){\n\t\t\t\t\n\t\t\t\tvar $this = $(this);\n\t\t\t\t\n\t\t\t\tevent.preventDefault();\n\t\t\t\t$('input[name=\"usingAJAX\"]',this).val( 'true' );\n\t\t\t\tvar url = $this.attr('action');\n\t\t\t\tvar dataToSend = $this.serialize();\n\t\t\t\tvar callback = function(dataReceived){\n\t\t\t\t\tRED.notify(dataReceived,\"success\");\n\t\t\t\t};\n\t\t\t\tvar typeOfDataToReceive = 'html';\n\t\t\t\t$.get( url, dataToSend, callback, typeOfDataToReceive )\n\t\t\t});\n\t\t\n</script>\n\n",
+        "x": 410,
+        "y": 500,
+        "z": "system",
+        "wires": [
+            [
+                "fe99f7a5.b6ba2"
+            ]
+        ]
+    },
+    {
+        "id": "5c747b17.7bc6e4",
+        "type": "ejs",
+        "name": "",
+        "ejs": "<%= payload %>",
+        "x": 410,
+        "y": 260,
+        "z": "system",
+        "wires": [
+            [
+                "ce6187c5.f08d48"
+            ]
+        ]
+    },
+    {
+        "id": "eb3fae6e.ff50b",
+        "type": "http in",
+        "name": "",
+        "url": "/handle/change-hostname",
+        "method": "get",
+        "x": 175,
+        "y": 720,
+        "z": "system",
+        "wires": [
+            [
+                "61920285.ad9c0c",
+                "7124270e.7c472"
+            ]
+        ]
+    },
+    {
+        "id": "848b882a.9b6d18",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 680,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "61920285.ad9c0c",
+        "type": "function",
+        "name": "parse query",
+        "func": "\n\n//console.log(JSON.stringify(msg.req.query));\n\n//console.log(JSON.stringify(msg.req.query.value));\n\nreturn {payload: msg.req.query.value};",
+        "outputs": 1,
+        "valid": true,
+        "x": 426.5,
+        "y": 740,
+        "z": "system",
+        "wires": [
+            [
+                "d8927586.fbf548"
+            ]
+        ]
+    },
+    {
+        "id": "d8927586.fbf548",
+        "type": "file",
+        "name": "write",
+        "filename": "/etc/hostname",
+        "appendNewline": false,
+        "overwriteFile": true,
+        "x": 650,
+        "y": 740,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "e9f64dcb.e44848",
+        "type": "http in",
+        "name": "",
+        "url": "/handle/wifilist",
+        "method": "get",
+        "x": 136,
+        "y": 920,
+        "z": "system",
+        "wires": [
+            [
+                "ffe287be.b46488",
+                "8a5693c4.dccb08"
+            ]
+        ]
+    },
+    {
+        "id": "d8614806.198b18",
+        "type": "http response",
+        "name": "",
+        "x": 650,
+        "y": 920,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "ffe287be.b46488",
+        "type": "function",
+        "name": "parse query",
+        "func": "\nreturn {\n\tssid: msg.req.query.ssid,\n\tpassword: msg.req.query.password,\n};",
+        "outputs": 1,
+        "valid": true,
+        "x": 426.5,
+        "y": 960,
+        "z": "system",
+        "wires": [
+            [
+                "b65a8077.a24e9"
+            ]
+        ]
+    },
+    {
+        "id": "3a8ed507.48da42",
+        "type": "file",
+        "name": "write",
+        "filename": "/etc/wpa_supplicant/wpa_supplicant.conf",
+        "appendNewline": false,
+        "overwriteFile": true,
+        "x": 1069,
+        "y": 1053,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "a846ad78.2a5078",
+        "type": "template",
+        "name": "/etc/wpa_supplicant/wpa_supplicant.conf",
+        "template": "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\n\nnetwork={\n        ssid=\"{{ssid}}\"\n        key_mgmt=NONE\n}\n",
+        "x": 695.5,
+        "y": 973,
+        "z": "system",
+        "wires": [
+            [
+                "dc5bc336.638358"
+            ]
+        ]
+    },
+    {
+        "id": "dfccf6ed.93f1b",
+        "type": "debug",
+        "name": "",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 1069,
+        "y": 1013,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "d5f8774d.aa55b",
+        "type": "comment",
+        "name": "WiFi",
+        "info": "",
+        "x": 89,
+        "y": 873,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "8dabdbbe.3b73f8",
+        "type": "comment",
+        "name": "Name",
+        "info": "",
+        "x": 90,
+        "y": 580,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "b65a8077.a24e9",
+        "type": "switch",
+        "name": "protected ?",
+        "property": "password",
+        "rules": [
+            {
+                "t": "eq",
+                "v": 0,
+                "v2": 0
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "outputs": 2,
+        "x": 423.5,
+        "y": 1013,
+        "z": "system",
+        "wires": [
+            [
+                "a846ad78.2a5078"
+            ],
+            [
+                "1435af4c.cd2161"
+            ]
+        ]
+    },
+    {
+        "id": "1435af4c.cd2161",
+        "type": "template",
+        "name": "/etc/wpa_supplicant/wpa_supplicant.conf",
+        "template": "ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\nupdate_config=1\n\n\nnetwork={\n        ssid=\"{{ssid}}\"\n        psk=\"{{password}}\"\n        key_mgmt=WPA-PSK\n}",
+        "x": 695.5,
+        "y": 1053,
+        "z": "system",
+        "wires": [
+            [
+                "dc5bc336.638358"
+            ]
+        ]
+    },
+    {
+        "id": "dc5bc336.638358",
+        "type": "function",
+        "name": "nothing",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "valid": true,
+        "x": 931,
+        "y": 1013,
+        "z": "system",
+        "wires": [
+            [
+                "3a8ed507.48da42",
+                "dfccf6ed.93f1b"
+            ]
+        ]
+    },
+    {
+        "id": "7124270e.7c472",
+        "type": "ejs",
+        "name": "",
+        "ejs": "write successfully.",
+        "x": 410,
+        "y": 680,
+        "z": "system",
+        "wires": [
+            [
+                "848b882a.9b6d18"
+            ]
+        ]
+    },
+    {
+        "id": "8a5693c4.dccb08",
+        "type": "ejs",
+        "name": "",
+        "ejs": "write successfully.",
+        "x": 410,
+        "y": 920,
+        "z": "system",
+        "wires": [
+            [
+                "d8614806.198b18"
+            ]
+        ]
+    },
+    {
+        "id": "2f85ae2a.445a52",
+        "type": "http in",
+        "name": "",
+        "url": "/handle/static_ip",
+        "method": "get",
+        "x": 143,
+        "y": 1113,
+        "z": "system",
+        "wires": [
+            [
+                "33c03efa.a1be62",
+                "582e704e.a5b398"
+            ]
+        ]
+    },
+    {
+        "id": "ba2474fd.627fb",
+        "type": "http response",
+        "name": "",
+        "x": 668.5,
+        "y": 1106,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "33c03efa.a1be62",
+        "type": "ejs",
+        "name": "",
+        "ejs": "write successfully.",
+        "x": 408.5,
+        "y": 1106,
+        "z": "system",
+        "wires": [
+            [
+                "ba2474fd.627fb"
+            ]
+        ]
+    },
+    {
+        "id": "582e704e.a5b398",
+        "type": "function",
+        "name": "parse query",
+        "func": "\nreturn {\n\tpayload: msg.req.query\n};",
+        "outputs": 1,
+        "valid": true,
+        "x": 425.5,
+        "y": 1153,
+        "z": "system",
+        "wires": [
+            [
+                "263c2485.5c293c"
+            ]
+        ]
+    },
+    {
+        "id": "263c2485.5c293c",
+        "type": "interfaces",
+        "name": "",
+        "x": 678.5,
+        "y": 1153,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "affeffee.23da58",
+        "type": "comment",
+        "name": "Static IP",
+        "info": "",
+        "x": 89,
+        "y": 1073,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "e60ce42c.4739f8",
+        "type": "exec",
+        "command": "systemctl restart thethingbox.service",
+        "append": "",
+        "useSpawn": "",
+        "name": "",
+        "x": 503,
+        "y": 1220,
+        "z": "system",
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "restart",
+        "type": "inject",
+        "name": "Restart Node-RED",
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 123.5,
+        "y": 1220,
+        "z": "system",
+        "wires": [
+            [
+                "e60ce42c.4739f8"
+            ]
+        ]
+    },
+    {
+        "id": "719fbd2d.56e974",
+        "type": "exec",
+        "command": "reboot",
+        "append": "",
+        "useSpawn": "",
+        "name": "",
+        "x": 405,
+        "y": 1279,
+        "z": "system",
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "reboot",
+        "type": "inject",
+        "name": "Reboot",
+        "topic": "",
+        "payload": "",
+        "payloadType": "none",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 90,
+        "y": 1280,
+        "z": "system",
+        "wires": [
+            [
+                "719fbd2d.56e974"
+            ]
+        ]
+    },
+    {
+        "id": "2da6f072.dc71a",
+        "type": "function",
+        "name": "",
+        "func": "\nmsg.payload = context.global.settings;\nreturn msg;\n",
+        "outputs": 1,
+        "valid": true,
+        "x": 410,
+        "y": 1400,
+        "z": "system",
+        "wires": [
+            [
+                "f4fae8c8.7f26f8"
+            ]
+        ]
+    },
+    {
+        "id": "c312c630.b44df",
+        "type": "inject",
+        "name": "Display Settings",
+        "topic": "",
+        "payload": "tuelututu",
+        "payloadType": "none",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 115.5,
+        "y": 1400,
+        "z": "system",
+        "wires": [
+            [
+                "2da6f072.dc71a"
+            ]
+        ]
+    },
+    {
+        "id": "f4fae8c8.7f26f8",
+        "type": "debug",
+        "name": "Display",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 648.5,
+        "y": 1400,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "37f5caaa.924eee",
+        "type": "comment",
+        "name": "This flow handles the internal functionalities of the Thingbox",
+        "info": "",
+        "x": 253,
+        "y": 40,
+        "z": "system",
+        "wires": []
+    },
+    {
+        "id": "95da6c70.6a259",
+        "type": "inject",
+        "name": "1 minute pump",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "x": 136,
+        "y": 173,
+        "z": "c3aed0d3.3ce58",
+        "wires": [
+            [
+                "7068621c.8f979c",
+                "48b1c2a1.b74e3c"
+            ]
+        ]
+    },
+    {
+        "id": "4c58fc51.b3a704",
+        "type": "tcp request",
+        "server": "",
+        "port": "",
+        "out": "char",
+        "splitc": "10",
+        "name": "send/receive LHZ command",
+        "x": 445,
+        "y": 167,
+        "z": "d66ba359.29946",
+        "wires": [
+            [
+                "1cc3f292.e33c0d"
+            ]
+        ]
+    },
+    {
+        "id": "1f0c2a11.e0f3d6",
+        "type": "function",
+        "name": "construct LHZ cmd",
+        "func": "msg.timestamp = msg.payload;\nmsg.payload = \"\\nLHZ\\n\"\nreturn msg;",
+        "outputs": 1,
+        "valid": true,
+        "x": 211,
+        "y": 168,
+        "z": "d66ba359.29946",
+        "wires": [
+            [
+                "4c58fc51.b3a704"
+            ]
+        ]
+    },
+    {
+        "id": "62c04fa4.9d3fb",
+        "type": "thingspeak",
+        "name": "thinkspeak plot",
+        "api_key": "9VQKOO0INOUPYTTA",
+        "field": "field1",
+        "x": 533,
+        "y": 391,
+        "z": "d66ba359.29946",
+        "wires": []
+    },
+    {
+        "id": "1cc3f292.e33c0d",
+        "type": "function",
+        "name": "parse reply",
+        "func": "var rstr = msg.payload.toString();\n\nif (rstr.indexOf(\"light frequency:\") > -1) {\n    var tmp = rstr.split(/[\\s,]+/);\n    msg.payload = tmp[2];\n} else {\n    return null;\n}\n\nreturn msg;",
+        "outputs": "1",
+        "valid": true,
+        "x": 339,
+        "y": 263,
+        "z": "d66ba359.29946",
+        "wires": [
+            [
+                "62c04fa4.9d3fb",
+                "f77b3372.0884d"
+            ]
+        ]
+    },
+    {
+        "id": "f77b3372.0884d",
+        "type": "mqtt out",
+        "name": "publish",
+        "topic": "/led_strip/LHZ",
+        "qos": "0",
+        "retain": "false",
+        "broker": "e8835a.512c7ca8",
+        "x": 319,
+        "y": 394,
+        "z": "d66ba359.29946",
+        "wires": []
+    },
+    {
+        "id": "e7f440bc.180bc",
+        "type": "subflow:d66ba359.29946",
+        "x": 590,
+        "y": 170,
+        "z": "c3aed0d3.3ce58",
+        "wires": [
+            [
+                "ec28144e.13d7e8"
+            ]
+        ]
+    },
+    {
+        "id": "7068621c.8f979c",
+        "type": "function",
+        "name": "host config: ESP8266_test",
+        "func": "msg.host = \"ESP8266_test\";\nmsg.port = 23\nreturn msg;",
+        "outputs": 1,
+        "valid": true,
+        "x": 357,
+        "y": 467,
+        "z": "c3aed0d3.3ce58",
+        "wires": [
+            [
+                "cada67b8.352598",
+                "d9525686.26ada8"
+            ]
+        ]
+    },
+    {
+        "id": "d9525686.26ada8",
+        "type": "debug",
+        "name": "config debug",
+        "active": false,
+        "console": "false",
+        "complete": "true",
+        "x": 610,
+        "y": 91,
+        "z": "c3aed0d3.3ce58",
+        "wires": []
+    },
+    {
+        "id": "ec28144e.13d7e8",
+        "type": "debug",
+        "name": "result debug",
+        "active": true,
+        "console": "false",
+        "complete": "true",
+        "x": 650,
+        "y": 245,
+        "z": "c3aed0d3.3ce58",
+        "wires": []
+    },
+    {
+        "id": "48b1c2a1.b74e3c",
+        "type": "function",
+        "name": "host config: led_strip",
+        "func": "msg.host = \"led_strip\";\nmsg.port = 23\nreturn msg;",
+        "outputs": 1,
+        "valid": true,
+        "x": 346,
+        "y": 67,
+        "z": "c3aed0d3.3ce58",
+        "wires": [
+            [
+                "d9525686.26ada8",
+                "e7f440bc.180bc"
+            ]
+        ]
+    },
+    {
+        "id": "be5fe48c.41a018",
+        "type": "tcp request",
+        "server": "",
+        "port": "",
+        "out": "char",
+        "splitc": "10",
+        "name": "get temperature",
+        "x": 437,
+        "y": 165,
+        "z": "cc50e872.33af18",
+        "wires": [
+            [
+                "4defe303.b2101c"
+            ]
+        ]
+    },
+    {
+        "id": "ff07008b.00f9",
+        "type": "function",
+        "name": "construct ds18b20 cmd",
+        "func": "msg.payload = \"\\n\\r\\n\\r\\n\\rds18b20 2\\n\\r\"\nreturn msg;",
+        "outputs": 1,
+        "valid": true,
+        "x": 232,
+        "y": 166,
+        "z": "cc50e872.33af18",
+        "wires": [
+            [
+                "be5fe48c.41a018"
+            ]
+        ]
+    },
+    {
+        "id": "29bb5ce4.d644a4",
+        "type": "thingspeak",
+        "name": "thinkspeak plot",
+        "api_key": "9VQKOO0INOUPYTTA",
+        "field": "field2",
+        "x": 464,
+        "y": 386,
+        "z": "cc50e872.33af18",
+        "wires": []
+    },
+    {
+        "id": "4defe303.b2101c",
+        "type": "function",
+        "name": "parse reply",
+        "func": "var rstr = msg.payload.toString();\n\nif (rstr.indexOf(\"Temperature: \") > -1) {\n    var tmp = rstr.split(/[\\s,]+/);\n    msg.payload = tmp[1];\n} else {\n    return null;\n}\n\nreturn msg;",
+        "outputs": "1",
+        "valid": true,
+        "x": 209,
+        "y": 249,
+        "z": "cc50e872.33af18",
+        "wires": [
+            [
+                "92c65218.6d39b",
+                "29bb5ce4.d644a4"
+            ]
+        ]
+    },
+    {
+        "id": "92c65218.6d39b",
+        "type": "mqtt out",
+        "name": "publish",
+        "topic": "/temperature",
+        "qos": "0",
+        "retain": "false",
+        "broker": "e8835a.512c7ca8",
+        "x": 233,
+        "y": 382,
+        "z": "cc50e872.33af18",
+        "wires": []
+    },
+    {
+        "id": "cada67b8.352598",
+        "type": "subflow:cc50e872.33af18",
+        "x": 628,
+        "y": 524,
+        "z": "c3aed0d3.3ce58",
+        "wires": [
+            [
+                "ec28144e.13d7e8"
+            ]
+        ]
+    }
+]

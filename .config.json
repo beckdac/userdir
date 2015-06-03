@@ -1,0 +1,608 @@
+{
+ "nodes": {
+  "node-red": {
+   "name": "node-red",
+   "version": "0.10.6",
+   "nodes": {
+    "sentiment": {
+     "name": "sentiment",
+     "types": [
+      "sentiment"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/analysis/72-sentiment.js"
+    },
+    "inject": {
+     "name": "inject",
+     "types": [
+      "inject"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/20-inject.js"
+    },
+    "catch": {
+     "name": "catch",
+     "types": [
+      "catch"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/25-catch.js"
+    },
+    "debug": {
+     "name": "debug",
+     "types": [
+      "debug"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/58-debug.js"
+    },
+    "exec": {
+     "name": "exec",
+     "types": [
+      "exec"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/75-exec.js"
+    },
+    "function": {
+     "name": "function",
+     "types": [
+      "function"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/80-function.js"
+    },
+    "template": {
+     "name": "template",
+     "types": [
+      "template"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/80-template.js"
+    },
+    "delay": {
+     "name": "delay",
+     "types": [
+      "delay"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/89-delay.js"
+    },
+    "trigger": {
+     "name": "trigger",
+     "types": [
+      "trigger"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/89-trigger.js"
+    },
+    "comment": {
+     "name": "comment",
+     "types": [
+      "comment"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/90-comment.js"
+    },
+    "unknown": {
+     "name": "unknown",
+     "types": [
+      "unknown"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/core/98-unknown.js"
+    },
+    "arduino": {
+     "name": "arduino",
+     "types": [
+      "arduino in",
+      "arduino out",
+      "arduino-board"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/hardware/35-arduino.js"
+    },
+    "rpi-gpio": {
+     "name": "rpi-gpio",
+     "types": [
+      "rpi-gpio in",
+      "rpi-gpio out",
+      "rpi-mouse"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/hardware/36-rpi-gpio.js"
+    },
+    "mqtt": {
+     "name": "mqtt",
+     "types": [
+      "mqtt in",
+      "mqtt out",
+      "mqtt-broker"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/10-mqtt.js"
+    },
+    "httpin": {
+     "name": "httpin",
+     "types": [
+      "http in",
+      "http response",
+      "http request"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/21-httpin.js"
+    },
+    "websocket": {
+     "name": "websocket",
+     "types": [
+      "websocket in",
+      "websocket out",
+      "websocket-listener",
+      "websocket-client"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/22-websocket.js"
+    },
+    "watch": {
+     "name": "watch",
+     "types": [
+      "watch"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/23-watch.js"
+    },
+    "serial": {
+     "name": "serial",
+     "types": [
+      "serial in",
+      "serial out",
+      "serial-port"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/25-serial.js"
+    },
+    "tcpin": {
+     "name": "tcpin",
+     "types": [
+      "tcp in",
+      "tcp out",
+      "tcp request"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/31-tcpin.js"
+    },
+    "udp": {
+     "name": "udp",
+     "types": [
+      "udp in",
+      "udp out"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/io/32-udp.js"
+    },
+    "switch": {
+     "name": "switch",
+     "types": [
+      "switch"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/logic/10-switch.js"
+    },
+    "change": {
+     "name": "change",
+     "types": [
+      "change"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/logic/15-change.js"
+    },
+    "range": {
+     "name": "range",
+     "types": [
+      "range"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/logic/16-range.js"
+    },
+    "CSV": {
+     "name": "CSV",
+     "types": [
+      "csv"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/parsers/70-CSV.js"
+    },
+    "HTML": {
+     "name": "HTML",
+     "types": [
+      "html"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/parsers/70-HTML.js"
+    },
+    "JSON": {
+     "name": "JSON",
+     "types": [
+      "json"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/parsers/70-JSON.js"
+    },
+    "XML": {
+     "name": "XML",
+     "types": [
+      "xml"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/parsers/70-XML.js"
+    },
+    "twitter": {
+     "name": "twitter",
+     "types": [
+      "twitter-credentials",
+      "twitter in",
+      "twitter out"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/social/27-twitter.js"
+    },
+    "feedparse": {
+     "name": "feedparse",
+     "types": [
+      "feedparse"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/social/32-feedparse.js"
+    },
+    "email": {
+     "name": "email",
+     "types": [
+      "e-mail",
+      "e-mail in"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/social/61-email.js"
+    },
+    "irc": {
+     "name": "irc",
+     "types": [
+      "irc in",
+      "irc out",
+      "irc-server"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/social/91-irc.js"
+    },
+    "tail": {
+     "name": "tail",
+     "types": [
+      "tail"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/storage/28-tail.js"
+    },
+    "file": {
+     "name": "file",
+     "types": [
+      "file",
+      "file in"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/storage/50-file.js"
+    },
+    "redisout": {
+     "name": "redisout",
+     "types": [
+      "redis out"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/storage/65-redisout.js"
+    },
+    "mongodb": {
+     "name": "mongodb",
+     "types": [
+      "mongodb",
+      "mongodb out",
+      "mongodb in"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/core/storage/66-mongodb.js"
+    },
+    "carriots": {
+     "name": "carriots",
+     "types": [
+      "carriots"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/carriots/carriots.js"
+    },
+    "color": {
+     "name": "color",
+     "types": [
+      "color"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/color/color.js"
+    },
+    "currentwifi": {
+     "name": "currentwifi",
+     "types": [
+      "currentwifi"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/currentwifi/currentwifi.js"
+    },
+    "display": {
+     "name": "display",
+     "types": [
+      "display"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/display/display.js"
+    },
+    "distance": {
+     "name": "distance",
+     "types": [
+      "distance"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/distance/distance.js"
+    },
+    "ejs": {
+     "name": "ejs",
+     "types": [
+      "ejs"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/ejs/ejs.js"
+    },
+    "emoncms": {
+     "name": "emoncms",
+     "types": [
+      "emoncms"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/emoncms/emoncms.js"
+    },
+    "esendex": {
+     "name": "esendex",
+     "types": [
+      "esendex"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/esendex/esendex.js"
+    },
+    "evrythng": {
+     "name": "evrythng",
+     "types": [
+      "evrythng"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/evrythng/evrythng.js"
+    },
+    "exosite": {
+     "name": "exosite",
+     "types": [
+      "exosite"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/exosite/exosite.js"
+    },
+    "file-function": {
+     "name": "file-function",
+     "types": [
+      "file function"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/file-function/file-function.js"
+    },
+    "go": {
+     "name": "go",
+     "types": [
+      "go"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/go/go.js"
+    },
+    "hivemq": {
+     "name": "hivemq",
+     "types": [
+      "HiveMQ out",
+      "HiveMQ in"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/hivemq/hivemq.js"
+    },
+    "hue": {
+     "name": "hue",
+     "types": [
+      "Hue Pull",
+      "Hue Set"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/hue/hue.js"
+    },
+    "intensity": {
+     "name": "intensity",
+     "types": [
+      "intensity"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/intensity/intensity.js"
+    },
+    "Intents": {
+     "name": "Intents",
+     "types": [
+      "Invert",
+      "Open",
+      "More",
+      "Less",
+      "Close",
+      "NoIntent"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/intents/Intents.js"
+    },
+    "interfaces": {
+     "name": "interfaces",
+     "types": [
+      "interfaces"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/interfaces/interfaces.js"
+    },
+    "owntracks": {
+     "name": "owntracks",
+     "types": [
+      "owntracks"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/owntracks/owntracks.js"
+    },
+    "thingspeak": {
+     "name": "thingspeak",
+     "types": [
+      "thingspeak"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/thingspeak/thingspeak.js"
+    },
+    "timestamp": {
+     "name": "timestamp",
+     "types": [
+      "timestamp"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/timestamp/timestamp.js"
+    },
+    "tinamous": {
+     "name": "tinamous",
+     "types": [
+      "tinamous"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/tinamous/tinamous.js"
+    },
+    "ubidots": {
+     "name": "ubidots",
+     "types": [
+      "ubidots"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/ubidots/ubidots.js"
+    },
+    "wifilist": {
+     "name": "wifilist",
+     "types": [
+      "wifilist"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/wifilist/wifilist.js"
+    },
+    "xively": {
+     "name": "xively",
+     "types": [
+      "xively"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/xively/xively.js"
+    },
+    "xively_mqtt": {
+     "name": "xively_mqtt",
+     "types": [
+      "xively_mqtt"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/xively_mqtt/xively_mqtt.js"
+    },
+    "commentdown": {
+     "name": "commentdown",
+     "types": [
+      "commentdown"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/comments/commentdown.js"
+    },
+    "commentup": {
+     "name": "commentup",
+     "types": [
+      "commentup"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/comments/commentup.js"
+    },
+    "set": {
+     "name": "set",
+     "types": [
+      "set"
+     ],
+     "enabled": true,
+     "module": "node-red",
+     "file": "/root/thethingbox/node_modules/node-red/nodes/thingbox/set/set.js"
+    }
+   }
+  }
+ }
+}
